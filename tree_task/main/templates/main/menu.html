@@ -1,0 +1,11 @@
+<ul class="sub-menu-list">
+    {% for item in menu %}
+        {% if item.url %}
+            <li class="sub-menu-item"><a href="{{ item.url }}" class="sub-menu-link">{{ item }}</a></li>
+        {% elif item.name %}
+            <li class="sub-menu-item"><a href="{{ item.name }}" class="sub-menu-link">{{ item }}</a></li>
+        {% else %}
+            {% include 'main/menu.html' with menu=item %}
+        {% endif %}
+    {% endfor %}
+</ul>
